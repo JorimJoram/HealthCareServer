@@ -5,4 +5,7 @@ import java.util.Optional
 
 interface AccountRepository:JpaRepository<Account, Long> {
     fun findByUsername(username:String):Optional<Account>
+    fun findByPhone(phone:String):Optional<Account>
+
+    fun deleteByUsername(username:String):Unit
 }

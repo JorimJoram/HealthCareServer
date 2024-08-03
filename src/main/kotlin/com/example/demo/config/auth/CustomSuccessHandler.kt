@@ -24,7 +24,7 @@ class CustomSuccessHandler:AuthenticationSuccessHandler {
             //모바일로 접속했을 때의 경우임 -> okhttp가 retrofit에서 사용하는거라 그러함
             response?.contentType = "applicationType/json"
             val token = SecurityContextHolder.getContext().authentication
-            //response?.writer?.write(ObjectMapper().writeValueAsString(token))
+            response?.writer?.write(ObjectMapper().writeValueAsString(token))
             response?.writer?.write(ObjectMapper().writeValueAsString(authentication?.principal as UserDetails))
         }else{
             val redirectStrategy = DefaultRedirectStrategy()
